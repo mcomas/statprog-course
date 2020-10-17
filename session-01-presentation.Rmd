@@ -1,0 +1,172 @@
+---
+title: Statistical programming
+subtitle: Introduction to R and RStudio
+author: " Marc Comas-Cufí and Karina Gibert"
+date: "16th October, 2020"
+output: 
+  ioslides_presentation: 
+    smaller: no
+    logo: mvtec-cover-4x3.png
+    css: style.css
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Course content
+
+* __16/10__.- Introduction to R and automatic reporting (_Marc_)
+* __23/10__.- Data manipulation and tidying data (_Marc_)
+* __30/10__.- Creating graphics with `ggplot2` (_Marc_)
+* __06/11__.- Overview of probability. Simulation (_Marc_)
+* __13/11__.- Overview of statistical inference (_Marc_)
+* __20/11__.- Overview of data science. Data preprocessing (_Karina_)
+* __27/11__.- DMMCM map and dimensionality reduction (_Karina_)
+* __04/12__.- Regression (_Karina_)
+* __11/12__.- Classification (_Karina_)
+* __18/12__.- Clustering (_Karina_)
+
+## Today's session
+
+```{r, echo=FALSE, results='asis'}
+cat(readr::read_lines("statprog_01_content.md"), sep='\n')
+```
+
+# R and RStudio
+
+## The R Project for Statistical Computing
+
+* R is a programming language for statistical computing.
+* The main implementation is the one available at the __The Comprehensive R Archive Network__ (CRAN). 
+  * Other implementations exist:  __Microsoft R Open__ (MRAN), __TIBCO® Enterprise Runtime for R__  (TERR), ...
+* R (CRAN) runs on Unix-like systems, Windows and Mac.
+* R (CRAN) can be download at <https://cran.r-project.org>.
+
+## RStudio Desktop
+
+* RStudio Desktop is a free integrated development environment (IDE) for R.
+* It incorporates: 
+  * A __`Console`__ pane to execute instructions interactively.
+  * An __`Environment`__ pane to control existing variables.
+  * An R script editor. Supporting other languages: `html`, `css`,  `markdown`, `python`, `C/C++`, ...
+* RStudio Desktop can be download at <https://rstudio.com/products/rstudio/download/>.
+
+## Automatic reporting
+
+* __Knitr__. Converts a text document with embedded code into a new document by executing the code and "knitting" the result back into the document. For example,
+  * `.Rmd` file into `.md` file
+  * `.Rhtml` file into `.html` file
+  * `.Rnd` file into `.tex` file
+* __R Markdown__. Converts `Rmd` files into a variaty of different formats: documents, presentations, books, websites, dashboards, ...
+
+## Recommended R book
+
+```{r, out.width='30%', fig.align='center', fig.cap='[Wickham & Grolemund (2017). R for Data Science](https://r4ds.had.co.nz/)'}
+knitr::include_graphics('session-01-presentation/r4ds.png')
+```
+
+## Recommended (non-R) book
+
+```{r, out.width='30%', fig.align='center', fig.cap='[Wilke (2020). Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) <br> Sources with R code at [https://github.com/clauswilke/dataviz](https://github.com/clauswilke/dataviz)'}
+knitr::include_graphics('session-01-presentation/dataviz.png')
+```
+
+#  The R language
+
+## R packages
+
+```{r, fig.align='center', fig.cap="<br><br>[CRAN](https://cran.r-project.org/web/packages/) and [Bioconductor](https://www.bioconductor.org/) are the main package repositories of R. <br/>[Github](http://github.com) contains lots of packages."}
+knitr::include_graphics('session-01-presentation/repositories.png')
+```
+
+## `tidyverse`: R packages for data science
+
+The [`tidyverse`](https://www.tidyverse.org/) is an opinionated [collection of R packages](https://www.tidyverse.org/packages/) designed for data science. All packages share an underlying design philosophy, grammar, and data structures.
+
+Install the complete tidyverse with:
+
+```{r, eval=FALSE, echo=TRUE}
+install.packages("tidyverse")
+```
+
+## Executing R scripts
+
+* From RStudio:
+  * Line by line execution (Ctrl+Enter)
+  * Run all script (Ctrl+Alt+R)
+  * _more options in "Run" menu.
+* Calling the script within R: `source("script_file.R")`
+* Calling from system's terminal: `Rscript script_file.R`
+
+## Functions {.smaller}
+
+Structure:
+
+```r
+my_function <- function(...){
+  ...
+  # Some code
+  ...
+  return(some_result)
+}
+```
+
+It is common to avoid the `return()` statement:
+
+```r
+my_function <- function(...){
+  ...
+  # Some code
+  ...
+  some_result
+}
+```
+
+## Vectors
+
+* __Atomic vectors__.
+    * `logical`, 
+    * `integer`, 
+    * `numeric`, 
+    * `character`, and also
+    * `raw` and `complex`.
+* __Lists__.
+
+Arrays (`array`) and matrices (`matrix`) are dimensionated vectors.
+
+## Subsetting
+
+* Positive integers
+* Negative integers
+* Logical vectors
+* Vector of names (only with named vectors)
+
+## Iteration {.smaller}
+
+* For-structure:
+
+```r
+for(i in S){
+  ...
+  # Some code
+  ...
+}
+```
+
+* With `base` package:<br>
+`sapply(x, f)`, `lapply(x, f)`<br>
+`mapply(f, x1, x2, ...)`
+* With `purrr`: <br>
+`map()` (`map_lgl()`, `map_int()`,  `map_dbl()` and `map_chr()`)<br>
+`map2()` (`map2_lgl()`, `map2_int()`,  `map2_dbl()` and `map2_chr()`)<br>
+`pmap()` (`pmap_lgl()`, `pmap_int()`,  `pmap_dbl()` and `pmap_chr()`)
+
+# That's all for today
+
+## Next week session
+
+```{r, echo=FALSE, results='asis'}
+cat(readr::read_lines("statprog_02_content.md"), sep='\n')
+```
