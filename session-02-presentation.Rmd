@@ -1,0 +1,442 @@
+---
+subtitle: Data manipulation and tidying data
+date: "23rd October, 2020"
+output: 
+  ioslides_presentation: 
+    smaller: no
+    logo: mvtec-cover-statistical-programming-4x3.png
+    css: style.css
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+options(tibble.print_min = 5, tibble.print_max = 5)
+```
+
+## Today's session
+
+```{r, echo=FALSE, results='asis'}
+cat(readr::read_lines("statprog_02_content.md"), sep='\n')
+```
+
+# `dplyr`: a grammar of data manipulation
+
+## Datasets {.smaller}
+
+```{r, warning=FALSE, echo=TRUE, results='hide', message=FALSE}
+library(nycflights13)
+data(package = 'nycflights13')
+```
+
+```
+Data sets in package ‘nycflights13’:
+
+airlines                      Airline names.
+airports                      Airport metadata
+flights                       Flights data
+planes                        Plane metadata.
+weather                       Hourly weather data
+```
+
+## Dataset: `flights` {.smaller}
+
+```{r, warning=FALSE, echo=TRUE}
+flights
+```
+
+## `dplyr` summary
+
+* `filter()` picks cases based on their values.
+* `arrange()` changes the ordering of the rows.
+* `select()` picks variables based on their names.
+* `mutate()` adds new variables that are functions of existing variables.
+* `summarise()` reduces multiple values down to a single summary.
+* `group_by()` allows to perform any operation “by group”.
+
+<br><br>
+
+Cheat sheet [pdf](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+
+## Row filtering (`filter()`)  {.smaller}
+
+* <div class="green2">Selecting all flights on January 1st</div>(`month == 1` and `day == 1`)
+
+```{r}
+filter(flights, month == 1, day == 1)
+```
+
+## Row filtering (`filter()`) {.smaller}
+
+* <div class="green2">Selecting all flights on January 1st</div>(`month == 1` and `day == 1`)
+* <div class="green2">Selecting all flights from six first years of the year</div>(`month <= 6`)
+* <div class="green2">Selecting all flights departing with no more that 5 minutes from scheduled departure time</div>(`-5 <= dep_delay` and `dep_delay <= 5` ) or (`abs(dep_delay) <= 5`) or (`between(dep_delay, -5, 5)`)
+
+Exercise.
+
+* <div class="blue2">Select flights flying to "IAH" or "HOU"</div>
+* <div class="blue2">Departed in summer (July, August and September)</div>
+
+## Selecting observations {.smaller}
+
+* `slice()` (helpers `slice_head()`, `slice_tail()`, `slice_min()`, `slice_max()`, `slice_sample()`)
+* `distinct()`. Select distinct observations given certain variables
+
+## Ordering observations (`arrange()`) {.smaller}
+
+* Order flights by year, month, day and delay
+
+```{r}
+arrange(flights, year, month, day, dep_delay)
+```
+
+## Ordering observations (`arrange()`) {.smaller}
+
+* Order flights by year, month, day and __decreasing__ delay
+
+```{r}
+arrange(flights, year, month, day, desc(dep_delay))
+```
+
+## Selecting variables (`select()`) {.smaller}
+
+* Select year, month, day and flight number
+
+```{r}
+select(flights, year, month, day, flight)
+```
+
+## `select()` helpers {.smaller}
+
+Special functions can be used to facilitate variable selection.
+
+* Matching names: `starts_with()`, `ends_with()`, `contains()`, `matches()`, `num_range()`. 
+* From vector of names: `all_of()`, `any_of()`. 
+* Using a function: `where()`
+
+```{r}
+select(flights, starts_with('dep_'), contains('arr_'))
+```
+
+## Transform variable (`mutate()`) {.smaller}
+
+* Calculating average flight speed (km/h)
+
+```{r}
+mutate(flights,
+       distance_km = distance * 1.60934,
+       air_time_h = air_time * 60,
+       speed_km_h = distance_km / air_time_h)
+```
+
+## Summarising variables (`summarise()`) {.smaller}
+
+* Calculate the average delays in departure and arrival
+
+```{r}
+summarise(flights,
+          average_dep_delay = mean(dep_delay, na.rm=TRUE),
+          average_arr_delay = mean(arr_delay, na.rm=TRUE))
+```
+
+## Working by groups (`group_by()`) {.smaller}
+
+* Stratify `flight` table by day
+
+```{r}
+flights_by_day = group_by(flights, year, month, day)
+```
+
+* Calculate the average delays in departure and arrival __by day__
+
+```{r, include=FALSE}
+options(dplyr.summarise.inform=FALSE)
+```
+
+```{r}
+summarise(flights_by_day, 
+          average_dep_delay = mean(dep_delay, na.rm=TRUE),
+          average_arr_delay = mean(arr_delay, na.rm=TRUE))
+```
+
+## Other usefull `dplyr` functions
+
+* Mutating joins: `inner_join()`, `left_join()`, `right_join`, ...
+* `expand()`, `expand_grid()`. Create a tibble from all combinations of inputs.
+* `bind_rows()`, `bind_cols()`. Efficiently bind multiple data frames by row and column.
+* `sample_n()`, `sample_frac()`. Sample from from a table.
+
+## The pipe operator (`%>%`) {.smaller}
+
+* Summarise the `arr_delay` variable for each month (giving the number of flights and the average delay), for those flights that had a positive `dep_delay`.
+
+```{r, eval=FALSE}
+summarise(group_by(filter(flights, dep_delay > 0), month),
+          average_arr_delay = mean(arr_delay, na.rm = TRUE))
+```
+
+```{r, eval=FALSE}
+flights_filtered = filter(flights, dep_delay > 0)
+flights_grouped = group_by(flights_filtered, month)
+summarise(flights_grouped,
+          average_arr_delay = mean(arr_delay, na.rm = TRUE))
+```
+
+    * The `%>%` approach:
+
+```{r, eval=FALSE}
+flights %>%
+  filter(dep_delay > 0) %>%
+  group_by(month) %>%
+  summarise(
+    average_arr_delay = mean(arr_delay, na.rm = TRUE))
+```
+
+# Descriptive statistics: Univariate analysis
+
+## Summarising a categorical variable {.smaller}
+
+* To understand the distribution of a categorical variable, we need the frequencies: either absolute or relative.
+* How is the distribution of `origin`?
+
+```{r}
+flights %>%
+  group_by(origin) %>%
+  summarise(n = n()) %>%
+  ungroup() %>%  # <- avoidable if .groups = 'drop' is passed to summarise()
+  mutate(p = prop.table(n))
+```
+
+## Summarising a categorical variable {.smaller}
+
+* To understand the distribution of a categorical variable, we need the frequencies of its categories: either absolute or relative.
+* How is the distribution of `origin`?
+
+```{r}
+flights %>%
+  count(origin) %>%
+  mutate(p = prop.table(n))
+```
+
+## Summarising a numerical variable {.smaller}
+
+* To understand the distribution of a numerical variable, the most common aspect are: the location and the variability of its values. The skewness can be of interest too.
+* Location. 
+    * Mean (`mean()`)
+    * Quartiles, deciles, quantiles (`quantile()`)
+    * Median (`median()`)
+* Spread. 
+    * Range (`diff(range())`)
+    * Standard deviation (`sd()`)
+    * Coefficient of variation (`sd()/mean()`)
+    * Interquartile range (`IQR()`)
+
+## Summarising a numerical variable {.smaller}
+
+* How is the distribution of `dep_delay`?
+
+```{r}
+summarise_dep_delay = function(.data) 
+  summarise(.data,
+            mean_ = mean(dep_delay, na.rm = TRUE),
+            median_ = median(dep_delay, na.rm = TRUE),
+            q1_ = quantile(dep_delay, 0.25, na.rm = TRUE),
+            q3_ = quantile(dep_delay, 0.75, na.rm = TRUE),
+            iqr_ = IQR(dep_delay, na.rm = TRUE),
+            min_ = min(dep_delay, na.rm = TRUE),
+            max_ = max(dep_delay, na.rm = TRUE) )
+flights %>% summarise_dep_delay()
+```
+
+* Highly right-skewed distribution (_mean_ much higher than _median_)
+* Distribution centered around zero (_median_ equal to -2)
+* 50% of central observations between -5 and 11 ($Q_1$ and $Q_3$)
+
+## Relation between numerical and categorical variables {.smaller}
+
+* How is the distribution of `dep_delay` and `origin`?
+
+```{r}
+flights %>%
+  group_by(origin) %>%
+  summarise_dep_delay()
+```
+
+* Distributions of `dep_delay` are similar with respect `origin`.
+* Lower variability of `dep_delay` in `LGA` airport.
+
+## Relation between categorical variables {.smaller}
+
+Let's create an `arrival` variable with two values: "delayed" and "on-time".
+
+```{r}
+flights = flights %>% 
+  mutate(arrival = if_else(arr_delay > 0, 'delayed', 'on-time'))
+```
+
+* How is the distribution of `origin` and `on.time`
+
+```{r}
+tab = flights %>%
+  with(table(arrival, origin))
+tab %>% addmargins()
+```
+
+## Relation between categorical variables.  {.smaller}
+
+__The marginals__
+
+* Row relative frequencies
+
+```{r}
+tab %>% prop.table(margin = 1)
+```
+
+* Column relative frequencies
+
+```{r}
+tab %>% prop.table(margin = 2)
+```
+
+## Relation between numerical variables {.smaller}
+
+* How is the distribution of `dep_delay` and `arr_delay`?
+
+```{r}
+flights %>%
+  summarise(
+    m_dep_delay = median(dep_delay, na.rm = TRUE),
+    iqr_dep_delay = IQR(dep_delay, na.rm = TRUE),
+    m_arr_delay = median(arr_delay, na.rm = TRUE),
+    iqr_arr_delay = IQR(arr_delay, na.rm = TRUE),
+    s_dep_arr_delay = cor(dep_delay, arr_delay, use = 'complete.obs')
+  )
+```
+
+* Higher variability in the arrival delay.
+* Strong association between `dep_delay` and `arr_delay`.
+
+## About correlation
+
+* Correlation can be easily misinterpreted.
+  * To infer causality, we need to be free of confounding. [Causal inference](https://www.bradyneal.com/causal-inference-course)
+  * Correlation is not valid for relative data.
+      * Variation array for compositional data.
+      * Proportionality: A Valid Alternative to Correlation for Relative Data
+
+# Wrangling
+
+## Tidy Data
+
+Tidy data is a standard way of mapping the meaning of a dataset to its structure.
+
+1. Each variable forms a column
+2. Each observation forms a row
+3. Each type of observational unit forms a table
+
+## `tidyr`: helpers to create tidy data
+
+* "Pivotting". `pivot_longer()` and `pivot_wider()`
+* "Rectangling".
+* "Nesting".
+* Splitting and combining: `separate()` and `unite()`.
+
+<br><br><br><br>
+
+Cheat Sheet [pdf](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf)
+
+## Messy datasets (1) {.smaller} 
+
+__Column headers are values, no variable names__
+
+```{r}
+tidyr::relig_income
+```
+
+## Messy datasets (2) {.smaller}   
+
+__Multiple variables stored in a column__
+
+```{r}
+tidyr::who
+```
+
+## Messy datasets (3) {.smaller} 
+
+__Variables are stored in both rows and columns__
+
+```{r, message=FALSE}
+library(readr)
+read_csv("session-02-presentation/weather.csv")
+```
+
+## Dates and time (`lubridate`) (1) {.smaller}
+
+* Parsing dates: `ymd()`, `ydm()`, `myd()`, `mdy()`, `dmy()`, `dym()`
+
+```{r, message=FALSE}
+library(lubridate)
+x <- c(20090101, "2009-01-02", "2009 01 03", "2009-1-4",
+       "2009-1, 5", "Created on 2009 1 6", "200901 !!! 07")
+(ddates = ymd(x))
+```
+
+* Extracting `year`, `month` or `day`
+
+```{r}
+year(ddates)
+```
+
+## Dates and time (`lubridate`) (2) {.smaller}
+
+* Calculating time differences
+
+```{r}
+diff(ymd(20100101) + years(1:5))
+```
+
+* How many weeks?
+
+```{r}
+interval(ymd(20101001), ymd(20101101)) / weeks(1)
+```
+
+
+Cheat Sheet [pdf](https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf)
+
+## String (`stringr`)
+
+A cohesive set of functions designed to make working with strings as easy as possible.
+
+* Detect matches: `str_detect()`
+* Subset strings: `str_sub()`
+* Manage lengths: `str_length()`, `str_trim()`
+* Mutate strings: `str_replace()`, `str_to_lower()`, `str_to_title()`
+* Join and split: `str_c()`, `str_split()`
+
+Cheat Sheet [pdf](https://raw.githubusercontent.com/rstudio/cheatsheets/master/strings.pdf)
+
+## Categorical variables (`forcats`)
+
+A suite of tools that solve common problems with factors:
+
+* `fct_reoder()`: reorder the levels of a factor according to some function
+* `fct_infreq()`: reorder the levels of a factor according to category frequencies
+* `fct_relevel()`: reorder the levels of a factor manually
+* `fct_lump_min()`, `fct_lump_n()`, `fct_lump_prop()`: collapse the least frequent values
+
+```{r, include=FALSE}
+x <- factor(rep(LETTERS[1:9], times = c(40, 10, 5, 27, 1, 1, 1, 1, 1)))
+x %>% fct_lump_n(3) %>% table()
+```
+
+Cheat Sheet [pdf](https://raw.githubusercontent.com/rstudio/cheatsheets/master/factors.pdf)
+
+# That's all for today
+
+## Next week session
+
+```{r, echo=FALSE, results='asis'}
+cat(readr::read_lines("statprog_03_content.md"), sep='\n')
+```
