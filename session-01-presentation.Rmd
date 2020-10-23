@@ -1,12 +1,10 @@
 ---
-title: Statistical programming
 subtitle: Introduction to R and RStudio
-author: " Marc Comas-Cufí and Karina Gibert"
 date: "16th October, 2020"
 output: 
   ioslides_presentation: 
     smaller: no
-    logo: mvtec-cover-4x3.png
+    logo: mvtec-cover-statistical-programming-4x3.png
     css: style.css
 fontsize: 12pt
 ---
