@@ -78,10 +78,11 @@ Exercise.
 * <div class="blue2">Select flights flying to "IAH" or "HOU"</div>
 * <div class="blue2">Departed in summer (July, August and September)</div>
 
-## Selecting observations {.smaller}
+## More row-selection functions {.smaller}
 
-* `slice()` (helpers `slice_head()`, `slice_tail()`, `slice_min()`, `slice_max()`, `slice_sample()`)
+* `slice()`. Select rows by position (helpers `slice_head()`, `slice_tail()`, `slice_min()`, `slice_max()`, `slice_sample()`)
 * `distinct()`. Select distinct observations given certain variables
+* `sample_n()`, `sample_frac()`. Random selection of rows
 
 ## Ordering observations (`arrange()`) {.smaller}
 
@@ -119,7 +120,7 @@ Special functions can be used to facilitate variable selection.
 select(flights, starts_with('dep_'), contains('arr_'))
 ```
 
-## Transform variable (`mutate()`) {.smaller}
+## Transform variables (`mutate()`) {.smaller}
 
 * Calculating average flight speed (km/h)
 
@@ -160,13 +161,6 @@ summarise(flights_by_day,
           average_arr_delay = mean(arr_delay, na.rm=TRUE))
 ```
 
-## Other usefull `dplyr` functions
-
-* Mutating joins: `inner_join()`, `left_join()`, `right_join`, ...
-* `expand()`, `expand_grid()`. Create a tibble from all combinations of inputs.
-* `bind_rows()`, `bind_cols()`. Efficiently bind multiple data frames by row and column.
-* `sample_n()`, `sample_frac()`. Sample from from a table.
-
 ## The pipe operator (`%>%`) {.smaller}
 
 * Summarise the `arr_delay` variable for each month (giving the number of flights and the average delay), for those flights that had a positive `dep_delay`.
@@ -193,11 +187,17 @@ flights %>%
     average_arr_delay = mean(arr_delay, na.rm = TRUE))
 ```
 
+## Other usefull `dplyr` functions
+
+* Mutating joins: `inner_join()`, `left_join()`, `right_join`, ...
+* `expand()`, `expand_grid()`. Create a tibble from all combinations of inputs.
+* `bind_rows()`, `bind_cols()`. Efficiently bind multiple data frames by row and column.
+
 # Descriptive statistics: Univariate analysis
 
 ## Summarising a categorical variable {.smaller}
 
-* To understand the distribution of a categorical variable, we need the frequencies: either absolute or relative.
+* <div class='blue2'>To understand the distribution of a categorical variable, we need the frequencies of its categories: either absolute or relative.</div>
 * How is the distribution of `origin`?
 
 ```{r}
@@ -210,7 +210,7 @@ flights %>%
 
 ## Summarising a categorical variable {.smaller}
 
-* To understand the distribution of a categorical variable, we need the frequencies of its categories: either absolute or relative.
+* <div class='blue2'>To understand the distribution of a categorical variable, we need the frequencies of its categories: either absolute or relative.</div>
 * How is the distribution of `origin`?
 
 ```{r}
@@ -221,7 +221,7 @@ flights %>%
 
 ## Summarising a numerical variable {.smaller}
 
-* To understand the distribution of a numerical variable, the most common aspect are: the location and the variability of its values. The skewness can be of interest too.
+* <div class='blue2'>To understand the distribution of a numerical variable, the most common aspect are: the location and the variability of its values. The skewness can be of interest too.</div>
 * Location. 
     * Mean (`mean()`)
     * Quartiles, deciles, quantiles (`quantile()`)
@@ -320,10 +320,10 @@ flights %>%
 ## About correlation
 
 * Correlation can be easily misinterpreted.
-  * To infer causality, we need to be free of confounding. [Causal inference](https://www.bradyneal.com/causal-inference-course)
+  * To measure the effect, we need to be free of confounding. [Causal inference course](https://www.bradyneal.com/causal-inference-course)
   * Correlation is not valid for relative data.
       * Variation array for compositional data.
-      * Proportionality: A Valid Alternative to Correlation for Relative Data
+      * Proportionality: A Valid Alternative to Correlation for Relative Data. [Reference](https://pubmed.ncbi.nlm.nih.gov/25775355/)
 
 # Wrangling
 
