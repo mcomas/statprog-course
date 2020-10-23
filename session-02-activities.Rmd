@@ -1,0 +1,185 @@
+---
+title: "Activities"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(width=100)
+```
+
+# Activity 1
+
+## Introduction
+
+In `dplyr`we have different functions to combine tables.
+
+* `bind_cols()`, `bind_rows()`.
+* `left_join()`, `right_join()`, `inner_join()`, `full_join()`.
+
+
+### `bind_*()` functions {.unlisted }
+
+With function `bind_cols()` we can combine the row of different tables:
+
+```{r, message=FALSE, warning=FALSE}
+library(nycflights13)
+library(tidyverse)
+
+flights_january = flights %>% 
+  filter(month == 1) %>%
+  slice_head(n = 4)
+
+flights_august = flights %>%
+  filter(month == 8) %>%
+  slice_head(n = 4)
+```
+
+We can pass as many tables as parameters as we want:
+
+```{r}
+bind_rows(flights_january, flights_august)
+```
+
+or a list containing the tables:
+
+```{r}
+bind_rows(list(
+  'January' = flights_january, 
+  'August' = flights_august), .id = 'Month')
+```
+
+`bind_cols()` function works similarly but with columns
+
+```{r}
+bind_cols(
+  flights %>% select(day, month),
+  flights %>% select(origin, dest))
+```
+
+### `*_join()` functions {.unlisted}
+
+Join function are useful to combine tables.
+
+* We can include airport information by joining to left table the right table.
+
+```{r}
+left_table = flights %>%
+  select(year:day, origin, dest) %>%
+  slice_head(n = 10)
+right_table = airports %>% 
+  select(faa, dest_name = name)
+left_join(left_table, right_table, by = c('dest' = 'faa'))
+```
+
+Using the pipe we can create a sequence
+
+```{r}
+flights %>%
+  select(year:day, origin, dest) %>%
+  slice_head(n = 10) %>%
+  left_join(airports %>% select(faa, origin_name = name), by = c('origin' = 'faa')) %>%
+  left_join(airports %>% select(faa, dest_name = name), by = c('dest' = 'faa'))
+```
+
+`inner_join()` join only information available in both, left and right, tables.
+
+```{r}
+inner_join(left_table, right_table, by = c('dest' = 'faa'))
+```
+
+__Notice that `BQN` code is not available in `airports` table__
+
+## Your turn
+
+The following dataset was built using `dplyr` package from `flights` and `airports` datasets:
+
+```r
+# A tibble: 2,313 x 12
+   month origin dest  distance     n dep_delay_m arr_delay_m dep_arr_delay_cor p_origin p_dest lat_dest lon_dest
+   <int> <chr>  <chr>    <dbl> <int>       <dbl>       <dbl>             <dbl>    <dbl>  <dbl>    <dbl>    <dbl>
+ 1     1 JFK    LAX       2475   937          -2         -11             0.767   0.102   0.808     33.9   -118. 
+ 2     1 LGA    ATL        762   878          -4          -2             0.833   0.110   0.629     33.6    -84.4
+ 3     1 JFK    SFO       2586   671          -2         -12             0.784   0.0732  0.755     37.6   -122. 
+ 4     1 LGA    ORD        733   583          -2          -4             0.911   0.0733  0.459     42.0    -87.9
+ 5     1 EWR    ORD        719   502          -1          -1             0.964   0.0507  0.396     42.0    -87.9
+ 6     1 JFK    BOS        187   486          -2         -10             0.893   0.0531  0.390     42.4    -71.0
+ 7     1 JFK    MCO        944   456          -2         -10             0.820   0.0498  0.388     28.4    -81.3
+ 8     1 LGA    MIA       1096   451          -3         -10             0.848   0.0567  0.460     25.8    -80.3
+ 9     1 JFK    FLL       1069   439          -2          -7             0.888   0.0479  0.378     26.1    -80.2
+10     1 LGA    CLT        544   437          -3          -2             0.875   0.0550  0.413     35.2    -80.9
+# … with 2,303 more rows
+```
+
+It contains a monthly summary for each origin-destination connection.
+
+* `distance`. Distance between origin and destination.
+* `n`. Number of flights.
+* `dep_delay_m`. Median departure delay.
+* `arr_delay_m`. Median arrival delay.
+* `dep_arr_delay_cor`. Correlation between departure and arrival delay.
+* `p_origin`. Marginal distribution with respect origin. Origin relative frequencies.
+* `p_dest`. Marginal distribution with respect destination. Destination relative frequencies.
+* `lat_dest`, `lon_dest`. Latitude and longitude of destination.
+
+Replicate the dataset using `dplyr` functions.
+
+
+# Activity 2
+
+In <https://github.com/owid/covid-19-data> you will find data on COVID-19 pandemia. 
+
+```{r, eval=FALSE}
+repo_url = "https://raw.githubusercontent.com/owid/covid-19-data"
+commit_code = "b12530c6d2b45cbd1a6a5c5c4a40caed86187b32"  # commit at 23th Oct
+# commit_code = "master"  # Uncomment to obtain master branch
+
+url_new_cases = sprintf("%s/%s/public/data/ecdc/new_cases.csv", repo_url, commit_code)
+url_new_deaths = sprintf("%s/%s/public/data/ecdc/new_deaths.csv", repo_url, commit_code)
+url_locations = sprintf("%s/%s/public/data/ecdc/locations.csv", repo_url, commit_code)
+
+new_cases = read_csv(url_new_cases)
+new_deaths = read_csv(url_new_deaths)
+locations = read_csv(url_locations)
+```
+
+You will notice that download tables are messy. Using `dplyr` build the following table with information of daily new cases and new death by location.
+
+```r
+# A tibble: 50,829 x 5
+   name                population date       cases deaths
+   <chr>                    <dbl> <date>     <dbl>  <dbl>
+ 1 Afghanistan           38928341 2020-10-23   116      4
+ 2 Albania                2877800 2020-10-23   302      3
+ 3 Algeria               43851043 2020-10-23   266      8
+ 4 Andorra                  77265 2020-10-23     0      0
+ 5 Angola                32866268 2020-10-23   289      4
+ 6 Anguilla                 15002 2020-10-23     0      0
+ 7 Antigua and Barbuda      97928 2020-10-23     0      0
+ 8 Argentina             45195777 2020-10-23 16325    438
+ 9 Armenia                2963234 2020-10-23  2306     10
+10 Aruba                   106766 2020-10-23    20      1
+# … with 50,819 more rows
+```
+
+Calculate the incidence of new cases (in 1000 person-year) using information from October.
+
+Incidences can be calculated as new cases divided by the number of people at risk (for each day, we will assume that all population at risk). The units depend on the period where we have measured new cases. In this table, cases are given daily. If $X$ denotes a serie of daily cases and $N$ is the number of people at risk, we can calculate the incidence of 1 person-day as: $\frac{\bar{X}}{N}$. To convert it to 1000 person-year units, we need to multiply by $1000\times 365.25$ (365.25 is the average number of days in one year).
+
+```r
+   name           cases_inc deaths_inc
+   <chr>              <dbl>      <dbl>
+ 1 Argentina          111.        4.02
+ 2 Montenegro         144.        2.25
+ 3 Guam               152.        2.07
+ 4 Andorra            379.        2.06
+ 5 Czech Republic     230.        1.79
+ 6 Bahamas             90.1       1.57
+ 7 Aruba               67.7       1.49
+ 8 Israel             131.        1.45
+ 9 Mexico              11.1       1.32
+10 Moldova             69.0       1.30
+# … with 200 more rows
+```
