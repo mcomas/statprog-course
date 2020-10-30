@@ -1,0 +1,36 @@
+---
+title: "Activities"
+output: 
+  html_document: 
+    toc: no
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(width=100)
+```
+
+# Activity 1
+
+Reproduce the following plot:
+
+<object type="image/svg+xml" data="figure01.svg" width = 600></object>
+
+### Indications:
+
+* `theme_classic()` was used as starting point.
+* For each car (combination of manufacturer and model) the average of `hwy` variables was calculated.
+* Useful functions: 
+    * `str_to_title` from `stringr` package.
+    * `fct_reorder` from `forcats` package.
+
+# Activity 2
+
+Reproduce the following plot:
+
+<object type="image/svg+xml" data="figure02.svg" width = 750></object>
+
+### Indications:
+
+* `ggtern` package was used.
+* `theme_light()` was used as starting point.

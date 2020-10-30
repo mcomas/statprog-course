@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 504.00 504.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    line, polyline, polygon, path, rect, circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<rect x='0.00' y='0.00' width='504.00' height='504.00' style='stroke-width: 1.07; stroke: #FFFFFF; fill: #FFFFFF;' />
+<defs>
+  <clipPath id='cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4'>
+    <rect x='21.15' y='5.48' width='477.37' height='467.03' />
+  </clipPath>
+</defs>
+<rect x='21.15' y='5.48' width='477.37' height='467.03' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='273.47' cy='86.17' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='229.46' cy='196.20' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='199.08' cy='245.11' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='91.45' cy='342.91' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='212.96' cy='232.88' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='64.55' cy='440.72' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='261.57' cy='122.85' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='170.67' cy='269.56' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='77.56' cy='391.82' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='60.21' cy='452.95' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='48.05' cy='465.17' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='83.35' cy='367.37' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='94.92' cy='330.69' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='67.65' cy='428.50' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='185.58' cy='257.33' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='347.59' cy='37.27' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='263.55' cy='110.62' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='233.80' cy='183.98' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='88.41' cy='355.14' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='68.89' cy='416.27' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='77.56' cy='379.59' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='94.92' cy='318.46' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='280.09' cy='61.72' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='222.22' cy='208.43' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='94.92' cy='306.24' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='240.74' cy='159.53' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='216.44' cy='220.66' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='233.80' cy='171.75' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='109.39' cy='294.01' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='273.47' cy='73.94' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='270.99' cy='98.40' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='372.67' cy='12.81' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='68.89' cy='404.04' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='119.72' cy='281.78' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='258.10' cy='147.30' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='287.80' cy='49.49' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='352.42' cy='25.04' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<circle cx='261.07' cy='135.07' r='1.95' style='stroke-width: 0.71;' clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)' />
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='277.34' y='90.12' style='font-size: 11.04px; font-family: Arial;' textLength='38.67px' lengthAdjust='spacingAndGlyphs'>Audi A4</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='237.31' y='200.15' style='font-size: 11.04px; font-family: Arial;' textLength='78.55px' lengthAdjust='spacingAndGlyphs'>Audi A4 Quattro</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='206.93' y='249.06' style='font-size: 11.04px; font-family: Arial;' textLength='78.55px' lengthAdjust='spacingAndGlyphs'>Audi A6 Quattro</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='107.16' y='346.87' style='font-size: 11.04px; font-family: Arial;' textLength='157.11px' lengthAdjust='spacingAndGlyphs'>Chevrolet C1500 Suburban 2wd</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='222.17' y='236.83' style='font-size: 11.04px; font-family: Arial;' textLength='92.04px' lengthAdjust='spacingAndGlyphs'>Chevrolet Corvette</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='78.54' y='444.67' style='font-size: 11.04px; font-family: Arial;' textLength='139.93px' lengthAdjust='spacingAndGlyphs'>Chevrolet K1500 Tahoe 4wd</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='269.85' y='126.80' style='font-size: 11.04px; font-family: Arial;' textLength='82.84px' lengthAdjust='spacingAndGlyphs'>Chevrolet Malibu</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='180.74' y='273.51' style='font-size: 11.04px; font-family: Arial;' textLength='100.65px' lengthAdjust='spacingAndGlyphs'>Dodge Caravan 2wd</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='90.57' y='395.77' style='font-size: 11.04px; font-family: Arial;' textLength='130.10px' lengthAdjust='spacingAndGlyphs'>Dodge Dakota Pickup 4wd</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='70.33' y='456.90' style='font-size: 11.04px; font-family: Arial;' textLength='101.27px' lengthAdjust='spacingAndGlyphs'>Dodge Durango 4wd</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='62.66' y='469.12' style='font-size: 11.04px; font-family: Arial;' textLength='146.05px' lengthAdjust='spacingAndGlyphs'>Dodge Ram 1500 Pickup 4wd</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='93.41' y='371.32' style='font-size: 11.04px; font-family: Arial;' textLength='100.64px' lengthAdjust='spacingAndGlyphs'>Ford Expedition 2wd</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='103.94' y='334.64' style='font-size: 11.04px; font-family: Arial;' textLength='90.19px' lengthAdjust='spacingAndGlyphs'>Ford Explorer 4wd</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='78.69' y='432.45' style='font-size: 11.04px; font-family: Arial;' textLength='110.45px' lengthAdjust='spacingAndGlyphs'>Ford F150 Pickup 4wd</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='192.39' y='261.28' style='font-size: 11.04px; font-family: Arial;' textLength='68.11px' lengthAdjust='spacingAndGlyphs'>Ford Mustang</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='353.55' y='41.22' style='font-size: 11.04px; font-family: Arial;' textLength='59.52px' lengthAdjust='spacingAndGlyphs'>Honda Civic</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='271.41' y='114.57' style='font-size: 11.04px; font-family: Arial;' textLength='78.56px' lengthAdjust='spacingAndGlyphs'>Hyundai Sonata</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='241.90' y='187.93' style='font-size: 11.04px; font-family: Arial;' textLength='81.00px' lengthAdjust='spacingAndGlyphs'>Hyundai Tiburon</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='101.61' y='359.09' style='font-size: 11.04px; font-family: Arial;' textLength='131.94px' lengthAdjust='spacingAndGlyphs'>Jeep Grand Cherokee 4wd</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='81.40' y='420.22' style='font-size: 11.04px; font-family: Arial;' textLength='125.19px' lengthAdjust='spacingAndGlyphs'>Land Rover Range Rover</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='88.43' y='383.54' style='font-size: 11.04px; font-family: Arial;' textLength='108.62px' lengthAdjust='spacingAndGlyphs'>Lincoln Navigator 2wd</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='107.69' y='322.41' style='font-size: 11.04px; font-family: Arial;' textLength='127.62px' lengthAdjust='spacingAndGlyphs'>Mercury Mountaineer 4wd</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='286.83' y='65.67' style='font-size: 11.04px; font-family: Arial;' textLength='67.48px' lengthAdjust='spacingAndGlyphs'>Nissan Altima</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='229.77' y='212.38' style='font-size: 11.04px; font-family: Arial;' textLength='75.46px' lengthAdjust='spacingAndGlyphs'>Nissan Maxima</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='105.97' y='310.19' style='font-size: 11.04px; font-family: Arial;' textLength='110.46px' lengthAdjust='spacingAndGlyphs'>Nissan Pathfinder 4wd</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='250.00' y='163.48' style='font-size: 11.04px; font-family: Arial;' textLength='92.65px' lengthAdjust='spacingAndGlyphs'>Pontiac Grand Prix</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='226.87' y='224.61' style='font-size: 11.04px; font-family: Arial;' textLength='104.31px' lengthAdjust='spacingAndGlyphs'>Subaru Forester Awd</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='244.10' y='175.70' style='font-size: 11.04px; font-family: Arial;' textLength='103.09px' lengthAdjust='spacingAndGlyphs'>Subaru Impreza Awd</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='119.21' y='297.96' style='font-size: 11.04px; font-family: Arial;' textLength='98.19px' lengthAdjust='spacingAndGlyphs'>Toyota 4runner 4wd</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='280.41' y='77.90' style='font-size: 11.04px; font-family: Arial;' textLength='69.32px' lengthAdjust='spacingAndGlyphs'>Toyota Camry</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='281.42' y='102.35' style='font-size: 11.04px; font-family: Arial;' textLength='104.30px' lengthAdjust='spacingAndGlyphs'>Toyota Camry Solara</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='379.85' y='16.77' style='font-size: 11.04px; font-family: Arial;' textLength='71.79px' lengthAdjust='spacingAndGlyphs'>Toyota Corolla</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='85.02' y='408.00' style='font-size: 11.04px; font-family: Arial;' textLength='161.39px' lengthAdjust='spacingAndGlyphs'>Toyota Land Cruiser Wagon 4wd</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='133.41' y='285.74' style='font-size: 11.04px; font-family: Arial;' textLength='136.83px' lengthAdjust='spacingAndGlyphs'>Toyota Toyota Tacoma 4wd</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='265.77' y='151.25' style='font-size: 11.04px; font-family: Arial;' textLength='76.70px' lengthAdjust='spacingAndGlyphs'>Volkswagen Gti</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='296.45' y='53.44' style='font-size: 11.04px; font-family: Arial;' textLength='86.53px' lengthAdjust='spacingAndGlyphs'>Volkswagen Jetta</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='364.32' y='28.99' style='font-size: 11.04px; font-family: Arial;' textLength='119.05px' lengthAdjust='spacingAndGlyphs'>Volkswagen New Beetle</text></g>
+<g clip-path='url(#cpMjEuMTV8NDk4LjUyfDQ3Mi41MXw1LjQ4)'><text x='270.71' y='139.03' style='font-size: 11.04px; font-family: Arial;' textLength='96.34px' lengthAdjust='spacingAndGlyphs'>Volkswagen Passat</text></g>
+<defs>
+  <clipPath id='cpMC4wMHw1MDQuMDB8NTA0LjAwfDAuMDA='>
+    <rect x='0.00' y='0.00' width='504.00' height='504.00' />
+  </clipPath>
+</defs>
+<polyline points='21.15,472.51 498.52,472.51 ' style='stroke-width: 1.07; stroke-linecap: butt;' clip-path='url(#cpMC4wMHw1MDQuMDB8NTA0LjAwfDAuMDA=)' />
+<polyline points='42.85,475.25 42.85,472.51 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' clip-path='url(#cpMC4wMHw1MDQuMDB8NTA0LjAwfDAuMDA=)' />
+<polyline points='129.64,475.25 129.64,472.51 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' clip-path='url(#cpMC4wMHw1MDQuMDB8NTA0LjAwfDAuMDA=)' />
+<polyline points='216.44,475.25 216.44,472.51 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' clip-path='url(#cpMC4wMHw1MDQuMDB8NTA0LjAwfDAuMDA=)' />
+<polyline points='303.23,475.25 303.23,472.51 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' clip-path='url(#cpMC4wMHw1MDQuMDB8NTA0LjAwfDAuMDA=)' />
+<polyline points='390.03,475.25 390.03,472.51 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' clip-path='url(#cpMC4wMHw1MDQuMDB8NTA0LjAwfDAuMDA=)' />
+<polyline points='476.82,475.25 476.82,472.51 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' clip-path='url(#cpMC4wMHw1MDQuMDB8NTA0LjAwfDAuMDA=)' />
+<g clip-path='url(#cpMC4wMHw1MDQuMDB8NTA0LjAwfDAuMDA=)'><text x='37.95' y='483.74' style='font-size: 8.80px; fill: #4D4D4D; font-family: Arial;' textLength='9.79px' lengthAdjust='spacingAndGlyphs'>15</text></g>
+<g clip-path='url(#cpMC4wMHw1MDQuMDB8NTA0LjAwfDAuMDA=)'><text x='124.75' y='483.74' style='font-size: 8.80px; fill: #4D4D4D; font-family: Arial;' textLength='9.79px' lengthAdjust='spacingAndGlyphs'>20</text></g>
+<g clip-path='url(#cpMC4wMHw1MDQuMDB8NTA0LjAwfDAuMDA=)'><text x='211.54' y='483.74' style='font-size: 8.80px; fill: #4D4D4D; font-family: Arial;' textLength='9.79px' lengthAdjust='spacingAndGlyphs'>25</text></g>
+<g clip-path='url(#cpMC4wMHw1MDQuMDB8NTA0LjAwfDAuMDA=)'><text x='298.34' y='483.74' style='font-size: 8.80px; fill: #4D4D4D; font-family: Arial;' textLength='9.79px' lengthAdjust='spacingAndGlyphs'>30</text></g>
+<g clip-path='url(#cpMC4wMHw1MDQuMDB8NTA0LjAwfDAuMDA=)'><text x='385.13' y='483.74' style='font-size: 8.80px; fill: #4D4D4D; font-family: Arial;' textLength='9.79px' lengthAdjust='spacingAndGlyphs'>35</text></g>
+<g clip-path='url(#cpMC4wMHw1MDQuMDB8NTA0LjAwfDAuMDA=)'><text x='471.93' y='483.74' style='font-size: 8.80px; fill: #4D4D4D; font-family: Arial;' textLength='9.79px' lengthAdjust='spacingAndGlyphs'>40</text></g>
+<g clip-path='url(#cpMC4wMHw1MDQuMDB8NTA0LjAwfDAuMDA=)'><text x='175.46' y='496.21' style='font-size: 11.00px; font-family: Arial;' textLength='168.74px' lengthAdjust='spacingAndGlyphs'>Average Highway Miles per Gallon</text></g>
+</svg>
