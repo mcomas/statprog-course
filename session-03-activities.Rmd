@@ -14,7 +14,7 @@ options(width=100)
 
 Reproduce the following plot:
 
-<object type="image/svg+xml" data="figure01.svg" width = 600></object>
+<object type="image/svg+xml" data="session-03-activities/figure01.svg" width = 600></object>
 
 ### Indications:
 
@@ -28,7 +28,7 @@ Reproduce the following plot:
 
 Reproduce the following plot:
 
-<object type="image/svg+xml" data="figure02.svg" width = 750></object>
+<object type="image/svg+xml" data="session-03-activities/figure02.svg" width = 750></object>
 
 ### Indications:
 
