@@ -1,3 +1,5 @@
+library(tidyverse)
+library(nycflights13)
 ## Activity 1
 tab1 = flights %>%
   group_by(month, origin, dest) %>%
