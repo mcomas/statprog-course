@@ -25,7 +25,8 @@ library(latex2exp)
 library(lubridate)
 library(egg)
 library(broom)
-
+library(car)
+# install.packages('gisfski')
 theme_set(theme_minimal())
 ```
 
@@ -310,7 +311,7 @@ n = sum(X_bin)
 ```
 
 * Step 2. $H_0: \pi = `r p0`$. Is it reasonable to assume $\pi = `r p0`$?
-* Step 3. $\sum_i x_i = `r sum(X_bin)` \sim N(n=N, \pi)$
+* Step 3. $\sum_i x_i = `r sum(X_bin)` \sim Bin(n=N, \pi)$
 * Step 4. The probability of obtaining “rarer” test statistics is given by the red area:
 
 ```{r, fig.height=2.2, out.width="90%", animation.hook="gifski"}
@@ -495,6 +496,12 @@ p1 = ggplot() +
   geom_boxplot(data=data, aes(x = month, y = rate, fill = location)) +
   labs(y = 'Infectiuous rate', x = '', fill = 'Country') + 
   theme(axis.text.x = element_blank(), legend.position = 'top')
+
+# p1 = ggplot() +
+#   geom_boxplot(data=filter(data, rate > 0), aes(x = month, y = rate, fill = location)) +
+#   labs(y = 'Infectiuous rate', x = '', fill = 'Country') + 
+#   scale_y_continuous(trans = scales::logit_trans()) +
+#   theme(axis.text.x = element_blank(), legend.position = 'top')
 
 p2 = ggplot() +
   geom_point(data=dttest, aes(x = month, y = estimate)) +

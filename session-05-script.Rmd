@@ -1,0 +1,70 @@
+---
+title: "Session 5"
+date: "11/13/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Confidence interval
+
+## Confidence interval for proportions
+
+```{r}
+X1 = c(0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+```
+
+
+```{r}
+sample_proportion = mean(X1)
+sample_proportion
+```
+
+```{r}
+X2 = c(0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1,
+       0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0)
+```
+
+```{r}
+mean(X2)
+```
+
+### Bootstrap approach
+
+```{r}
+v_proportions = map_dbl(1:10000, ~mean(sample(X1, length(X1), replace = TRUE)))
+summary(v_proportions)
+```
+
+```{r}
+alpha = 0.05
+quantile(v_proportions, c(0.025, 0.975))
+```
+
+
+
+```{r}
+X_num = c(10.2, 8.8, 11.2, 9, 9.6, 10.3, 10.2, 13.2, 12.5, 7)
+mean(X_num)
+10.2
+H_0 = 10
+9.8
+```
+
+
+## Two-sample t-test
+
+```{r}
+data = tibble(
+  X = c(80.8, 78.2, 81, 79.9, 80.7, 79.3, 78.7, 79.6, 79.5, 79.3,  # <- A
+        81.8, 81.4, 78.3, 79.4, 82.1, 81.3, 79, 80.5, 81.1, 80.2), # <- B
+  G = c(rep('A', 10), rep('B', 10))
+)
+```
+
