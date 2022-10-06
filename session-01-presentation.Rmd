@@ -7,6 +7,8 @@ output:
     logo: mvtec-cover-statistical-programming-4x3.png
     css: style.css
 fontsize: 12pt
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = "docs") })
 ---
 
 ```{r setup, include=FALSE}
@@ -15,21 +17,26 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Course content
 
-* __16/10__.- Introduction to R and automatic reporting (_Marc_)
-* __23/10__.- Data manipulation and tidying data (_Marc_)
-* __30/10__.- Creating graphics with `ggplot2` (_Marc_)
-* __06/11__.- Overview of probability. Simulation (_Marc_)
-* __13/11__.- Overview of statistical inference (_Marc_)
-* __20/11__.- Overview of data science. Data preprocessing (_Karina_)
-* __27/11__.- DMMCM map and dimensionality reduction (_Karina_)
-* __04/12__.- Regression (_Karina_)
-* __11/12__.- Classification (_Karina_)
-* __18/12__.- Clustering (_Karina_)
+```{r, include=FALSE}
+library(lubridate)
+d1 = ymd("2022-10-07")
+```
+
+* __`r format(d1, '%d/%m')`__.- Introduction to R and automatic reporting (__Marc__)
+* __`r format(d1 + weeks(1), '%d/%m')`__.- Data manipulation and tidying data (__Marc__)
+* __`r format(d1 + weeks(2), '%d/%m')`__.- Creating graphics with `ggplot2` (__Marc__)
+* __`r format(d1 + weeks(3), '%d/%m')`__.- Overview of probability. Simulation (__Marc__)
+* __`r format(d1 + weeks(4), '%d/%m')`__.- Overview of statistical inference (__Marc__)
+* __`r format(d1 + weeks(5), '%d/%m')`__.- Overview of data science. Data preprocessing (__Karina__)
+* __`r format(d1 + weeks(6), '%d/%m')`__.- DMMCM map and dimensionality reduction (__Karina__)
+* __`r format(d1 + weeks(7), '%d/%m')`__.- Regression (__Karina__)
+* __`r format(d1 + weeks(8), '%d/%m')`__.- Classification (__Karina__)
+* __`r format(d1 + weeks(10), '%d/%m')`__.- Clustering (__Karina__)
 
 ## Today's session
 
 ```{r, echo=FALSE, results='asis'}
-cat(readr::read_lines("statprog_01_content.md"), sep='\n')
+cat(readr::read_lines("session-01-content.md"), sep='\n')
 ```
 
 # R and RStudio
@@ -49,7 +56,17 @@ cat(readr::read_lines("statprog_01_content.md"), sep='\n')
   * A __`Console`__ pane to execute instructions interactively.
   * An __`Environment`__ pane to control existing variables.
   * An R script editor. Supporting other languages: `html`, `css`,  `markdown`, `python`, `C/C++`, ...
+* RStudio is becoming Posit <https://posit.co/>.
 * RStudio Desktop can be download at <https://rstudio.com/products/rstudio/download/>.
+
+## RStudio alternatives
+
+* __R Extension for Visual Studio Code__,
+* __R tools__ (Visual Studio),
+* __StatET for R__ (Eclipse),
+* __Jupyter__ with an R kernel (`IRkernel`) or
+* any text editor: Emacs, Atom, ...
+
 
 ## Automatic reporting
 
@@ -67,34 +84,16 @@ knitr::include_graphics('session-01-presentation/r4ds.png')
 
 ## Recommended (non-R) book
 
-```{r, out.width='30%', fig.align='center', fig.cap='[Wilke (2020). Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) <br> Sources with R code at [https://github.com/clauswilke/dataviz](https://github.com/clauswilke/dataviz)'}
+```{r, out.width='30%', fig.align='center', fig.cap='[Wilke (2020). Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) <br/><br/> Sources with R code at [https://github.com/clauswilke/dataviz](https://github.com/clauswilke/dataviz)'}
 knitr::include_graphics('session-01-presentation/dataviz.png')
 ```
 
 #  The R language
 
-## R packages
-
-```{r, fig.align='center', fig.cap="<br><br>[CRAN](https://cran.r-project.org/web/packages/) and [Bioconductor](https://www.bioconductor.org/) are the main package repositories of R. <br/>[Github](http://github.com) contains lots of packages."}
-knitr::include_graphics('session-01-presentation/repositories.png')
-```
-
-## `tidyverse`: R packages for data science
-
-The [`tidyverse`](https://www.tidyverse.org/) is an opinionated [collection of R packages](https://www.tidyverse.org/packages/) designed for data science. All packages share an underlying design philosophy, grammar, and data structures.
-
-Install the complete tidyverse with:
-
-```{r, eval=FALSE, echo=TRUE}
-install.packages("tidyverse")
-```
-
 ## Executing R scripts
 
 * From RStudio:
-  * Line by line execution (Ctrl+Enter)
-  * Run all script (Ctrl+Alt+R)
-  * _more options in "Run" menu.
+  * Current line or selection execution (Ctrl+Enter)
 * Calling the script within R: `source("script_file.R")`
 * Calling from system's terminal: `Rscript script_file.R`
 
@@ -141,6 +140,23 @@ Arrays (`array`) and matrices (`matrix`) are dimensionated vectors.
 * Logical vectors
 * Vector of names (only with named vectors)
 
+
+## R packages
+
+```{r, fig.align='center', fig.cap="<br><br>[CRAN](https://cran.r-project.org/web/packages/) and [Bioconductor](https://www.bioconductor.org/) are the main package repositories of R. <br/>[Github](http://github.com) contains lots of packages."}
+knitr::include_graphics('session-01-presentation/repositories.png')
+```
+
+## `tidyverse`: R packages for data science
+
+The [`tidyverse`](https://www.tidyverse.org/) is an opinionated [collection of R packages](https://www.tidyverse.org/packages/) designed for data science. All packages share an underlying design philosophy, grammar, and data structures.
+
+Install the complete tidyverse with:
+
+```{r, eval=FALSE, echo=TRUE}
+install.packages("tidyverse")
+```
+
 ## Iteration {.smaller}
 
 * For-structure:
@@ -166,5 +182,5 @@ for(i in S){
 ## Next week session
 
 ```{r, echo=FALSE, results='asis'}
-cat(readr::read_lines("statprog_02_content.md"), sep='\n')
+cat(readr::read_lines("session-02-content.md"), sep='\n')
 ```

@@ -2,8 +2,7 @@
 * __`knitr`__. Elegant, flexible, and fast dynamic report generation
 * Executing R scripts
 * Introduction to the R language
-    * Functions
-    * Vectors
-    * Arrays and matrices
+    * Vectors: atomic and list
     * Subsetting
-    * Iteration
+    * Tables
+    * Functions
