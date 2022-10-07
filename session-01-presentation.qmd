@@ -8,6 +8,7 @@ subtitle: Introduction to R and RStudio/Posit
 author: Marc Comas-Cufí
 format: 
   revealjs:
+    self-contained: true
     smaller: false
     logo: mvtec-cover-statistical-programming-4x3.png
 fontsize: 12pt
