@@ -1,12 +1,12 @@
 .gdbar img {
   width: 600px !important;
-  height: 400px !important;
-  margin: 8px 8px;
+  height: 370px !important;
+  margin: 18px 18px;
 }
 
 .gdbar {
   width: 700px !important;
-  height: 450px !important;
+  height: 400px !important;
 }
 
 slides > slide:not(.nobackground):before {

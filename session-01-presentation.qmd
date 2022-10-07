@@ -1,0 +1,438 @@
+---
+title: Statistical programming
+title-slide-attributes:
+  data-background-image: mvtec-cover-statistical-programming-4x3.png
+  data-background-size: contain
+  data-background-opacity: "0.1"
+subtitle: Introduction to R and RStudio/Posit
+author: Marc Comas-Cufí
+format: 
+  revealjs:
+    smaller: false
+    logo: mvtec-cover-statistical-programming-4x3.png
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, comment = "#> ")
+```
+
+## Course content {.smaller}
+
+```{r, include=FALSE}
+library(lubridate)
+d1 = ymd("2022-10-07")
+```
+
+* __`r format(d1, '%d/%m')`__.- Introduction to R and automatic reporting (__Marc__)
+* __`r format(d1 + weeks(1), '%d/%m')`__.- Data manipulation and tidying data (__Marc__)
+* __`r format(d1 + weeks(2), '%d/%m')`__.- Creating graphics with `ggplot2` (__Marc__)
+* __`r format(d1 + weeks(3), '%d/%m')`__.- Overview of probability. Simulation (__Marc__)
+* __`r format(d1 + weeks(4), '%d/%m')`__.- Overview of statistical inference (__Marc__)
+* __`r format(d1 + weeks(5), '%d/%m')`__.- Overview of data science. Data preprocessing (__Karina__)
+* __`r format(d1 + weeks(6), '%d/%m')`__.- DMMCM map and dimensionality reduction (__Karina__)
+* __`r format(d1 + weeks(7), '%d/%m')`__.- Regression (__Karina__)
+* __`r format(d1 + weeks(8), '%d/%m')`__.- Classification (__Karina__)
+* __`r format(d1 + weeks(10), '%d/%m')`__.- Clustering (__Karina__)
+
+## Today's session {.smaller}
+
+```{r, echo=FALSE, results='asis'}
+cat(readr::read_lines("session-01-content.md"), sep='\n')
+```
+
+# R and RStudio
+
+## The R Project for Statistical Computing
+
+* R is a programming language for statistical computing.
+* The main implementation is the one available at __The Comprehensive R Archive Network__ (CRAN). 
+  * Other implementations exist:  __Microsoft R Open__ (MRAN), __TIBCO® Enterprise Runtime for R__  (TERR), ...
+* R (CRAN) runs on Unix-like systems, Windows and Mac.
+* R (CRAN) can be downloaded at <https://cran.r-project.org>.
+
+## RStudio Desktop {.smaller}
+
+* RStudio Desktop is a free-integrated development environment (IDE) for R.
+* It incorporates: 
+  * A __`Console`__ pane to execute instructions interactively.
+  * An __`Environment`__ pane to control existing variables.
+  * An R script editor. Supporting other languages: `html`, `css`,  `markdown`, `python`, `C/C++`, ...
+* RStudio is becoming Posit <https://posit.co/>.
+* RStudio Desktop can be downloaded at <https://rstudio.com/products/rstudio/download/>.
+
+## RStudio alternatives
+
+* __R Extension for Visual Studio Code__,
+* __R tools__ (Visual Studio),
+* __StatET for R__ (Eclipse),
+* __Jupyter__ with an R kernel (`IRkernel`) or
+* any text editor: Emacs, Atom, ...
+
+<!--
+
+## Automatic reporting
+
+* __Knitr__. Converts a text document with embedded code into a new document by executing the code and "knitting" the result back into the document. For example,
+  * `.Rmd` file into `.md` file
+  * `.Rhtml` file into `.html` file
+  * `.Rnd` file into `.tex` file
+* __R Markdown__. Converts `Rmd` files into a variety of different formats: documents, presentations, books, websites, dashboards, ...
+
+-->
+
+## Recommended R book
+
+```{r, out.width='30%', fig.align='center', fig.cap='[Wickham & Grolemund (2017). R for Data Science](https://r4ds.had.co.nz/)'}
+knitr::include_graphics('session-01-presentation/r4ds.png')
+```
+
+## Recommended (non-R) book
+
+```{r, out.width='30%', fig.align='center', fig.cap='[Wilke (2020). Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) <br/><br/> Sources with R code at [https://github.com/clauswilke/dataviz](https://github.com/clauswilke/dataviz)'}
+knitr::include_graphics('session-01-presentation/dataviz.png')
+```
+
+#  The R language
+
+## Accessing R's help system
+
+* `help` is the primary interface to the help systems.
+
+```{r, eval=FALSE, echo=TRUE}
+help(help) 
+?help
+help.search("boxplot")
+??boxplot
+help(package = 'lattice')
+library()
+data()
+```
+
+* In RStudio, we can use the `Help` pane.
+
+## Executing R scripts
+
+* From RStudio:
+  * Current line or selection execution (Ctrl+Enter)
+* Calling the script within R: `source("script_file.R")`
+* Calling from system's terminal: `Rscript script_file.R`
+
+## Vectors: `atomic`'s and `list`'s {.smaller}
+
+* __Atomic vectors__
+    * `logical`, 
+    * `integer`, 
+    * `numeric`, 
+    * `character`, and also
+    * `raw` and `complex`.
+    * Coercing order: `logical` $\rightarrow$ `integer`  $\rightarrow$ `numeric` $\rightarrow$ `character`
+* __Lists__
+
+## Atomic vectors (1) {.smaller data-background=#CCE5FF}
+
+* Four most common types:
+
+```{r, eval=FALSE, echo=TRUE}
+v_num = c(2,4,3,5,4,6,6)
+v_num
+v_char = c('Vector', 'of', 'strings')
+v_char
+v_int = c(2L,4L,3L,5L,4L,6L,6L)
+v_int
+v_log = c(TRUE, FALSE, FALSE, TRUE, FALSE)
+v_log
+```
+
+* Coercing order:
+
+```{r, eval=FALSE, echo=TRUE}
+v_mixed = c("Vector", "with", 1, "number")
+v_mixed
+typeof(v_mixed)
+# more coercions
+c(TRUE, 1L, 1, "one")
+c(TRUE, FALSE, 2, 4)
+```
+
+* To assign, we can use `<-` (most common) o `->` operators (least common):
+
+```{r, eval=FALSE, echo=TRUE}
+a1 <- c(1,2,3)
+c(1,2,3) -> a2
+```
+
+## Atomic vectors (2) {.smaller data-background=#CCE5FF}
+
+* Building atomic vectors
+
+```{r, eval=FALSE, echo=TRUE}
+0:20
+seq(0,20,2)
+seq(20,0,-2)
+seq(0, 20, length=20)
+sample(0:20)
+scan("https://raw.githubusercontent.com/srmalins/primelists/master/100000primes/primes.0000", nmax = 10)
+scan(text = "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144", sep = ',')
+scan(text = "Building atomic vectors", what = character())
+```
+
+* Constants
+
+```{r, eval=FALSE, echo=TRUE}
+LETTERS
+letters
+month.name
+month.abb
+pi
+```
+
+## Atomic vectors (3)  {.smaller data-background=#CCE5FF} 
+
+* `NA` is a symbol to define a non-available observation.
+* We can operate with `NA`:
+
+```{r, eval=FALSE, echo=TRUE}
+NA + 3
+NA ^ 0
+NA | FALSE
+NA | TRUE
+mean( c(1, 3, 2, NA) )
+mean( c(1, 3, 2, NA), na.rm = TRUE )
+```
+
+* We can ask if an element is `NA` or if a vector has some `NA`:
+
+```{r, eval=FALSE, echo=TRUE}
+is.na( c(1, 3, 2, NA) )
+anyNA( c(1, 3, 2, NA))
+```
+
+## Lists  {.smaller data-background=#CCE5FF} 
+
+* Lists can be created using function `list()`:
+
+```{r, eval=FALSE, echo=TRUE}
+my_list = list(
+  c("first", "element"),
+  c(TRUE, FALSE, TRUE),
+  list(),
+  1:20
+)
+my_list
+```
+
+* A particular type of `list` is the `data.frame`, where elements should have the same length:
+
+```{r, eval=FALSE, echo=TRUE}
+my_data = data.frame(
+  name = c('Marc', 'Manel', 'Christine', 'Sonia'),
+  sex = c('male', 'male', 'female', 'female'),
+  age = c(40, 45, 30, 43) )
+my_data
+# my_data is a list
+is.list(my_data)
+```
+
+
+## Selecting vectors (1) {.smaller data-background=#CCE5FF} 
+
+* Positive integers
+
+```{r, eval=FALSE, echo=TRUE}
+month.abb[c(1,3,5,7,9,11)]
+```
+
+* Negative integers
+
+```{r, eval=FALSE, echo=TRUE}
+month.abb[c(-1,-3,-5,-7,-9,-11)]
+```
+
+* Logical vectors
+
+```{r, eval=FALSE, echo=TRUE}
+month.abb[c(T,F,T,F,T,F,T,F,T,F,T,F)]
+```
+
+* Vector of names (only with named vectors)
+
+```{r, eval=FALSE, echo=TRUE}
+x = 1:12
+names(x) = month.abb
+x[c("Jan", "Mar", "May", "Jul", "Sep", "Nov")]
+```
+
+## Selecting vectors (2) {.smaller data-background=#CCE5FF} 
+
+* Selection is valid for lists
+
+```{r, eval=FALSE, echo=TRUE}
+my_list[c(1,1,3)]
+my_list[-3]
+my_list[c(T,F,F,T)]
+my_data[c('name', 'age')]
+```
+
+* __Only for `list`'s__: we use `[[]]` to obtain the content of one vector's element.
+
+```{r, eval=FALSE, echo=TRUE}
+my_list[[1]]
+my_data[['age']]
+# equivalently, for named list, we can use $
+my_data$age
+```
+
+* __Only for `data.frame`'s__: we use `[rows,columns]` to slice a table by rows and columns.
+
+```{r, eval=FALSE, echo=TRUE}
+my_data[c(1,3), c(1,3)]
+my_data[c(TRUE, FALSE, TRUE, FALSE),]
+my_data[,1:2]
+my_data[,1]            # equivalent to my_data[[1]]
+my_data[,1,drop=FALSE] # equivalent to my_data[1]
+```
+
+## Activity {.smaller background-color="#20B2AA"}
+
+* Suppose `queue = c("Maria", "Josep", "Marçal", "Lluïsa")` represents a supermarket queue, with Maria first in line. Using R expressions update the supermarket queue:
+    1. Manel arrives;
+    2. Maria is served;
+    3. Vicens talks her way to the front with one item;
+    4. Manel gets impatient and leaves;
+    5. Marçal gets impatient and leaves;
+
+
+```{r, eval=FALSE, echo=FALSE}
+queue = c("Maria", "Josep", "Marçal", "Lluïsa")
+queue = c(queue, "Manel")
+queue
+queue = queue[-1]
+queue
+queue = c("Vicens", queue)
+queue
+queue = queue[1:4]
+queue
+queue = queue[-3]
+queue
+```
+
+
+## Operators in R
+
+* __Arithmetic__. Addition (`+`), subtraction (`-`), multiplication (`*`), division (`/`), and exponentiation (`^`).
+    * Modulus (`%%`) and integer division (`%/%`).
+* __Logical__. and (`&`), or (`|`), negation (`!`)
+    * Comparisons: lower than (`<`), greater than (`>`), lower or equal than (`<=`), greater or equal than (`>=`), equal to (`==`), not equal to (`!=`), is in (`%in%`).
+    
+    
+
+## Functions {.smaller}
+
+Structure:
+
+```r
+function(...){
+  ...
+  # Some code
+  ...
+  return(some_result)
+}
+```
+
+It is common to avoid the `return()` statement:
+
+```r
+function(...){
+  ...
+  # Some code
+  ...
+  some_result
+}
+```
+
+## Functions {.smaller data-background=#CCE5FF} 
+
+[Fibonacci numbers](https://en.wikipedia.org/wiki/Fibonacci_number) $F_0, F_1, F_2, \dots$ can be defined recursively as
+
+$$
+F_n = \left\{\begin{matrix}
+n & \text{si $0 \leq n \leq 1$} \\
+F_{n-1} + F_{n-2} & \text{si $2 \leq n$}
+\end{matrix}\right.
+$$
+
+Recursive implementation:
+
+```{r, echo=TRUE, eval=FALSE}
+Fn_rec = function(n){
+  if(n < 0 | n != round(n)) stop("n must be a non-negative integer", call. = FALSE)
+  if(n <= 1) return(n)
+  Recall(n-1) + Recall(n-2)
+}
+```
+
+Iterative implementation:
+
+```{r, echo=TRUE, eval=FALSE}
+Fn_ite = function(n){
+  if(n < 0 | n != round(n)) stop("n must be a non-negative integer", call. = FALSE)
+  if(n <= 1) return(n)
+  Fn_v = rep(0, n)
+  Fn_v[1:2] = 1
+  for(i in 3:n){
+    Fn_v[i] = Fn_v[i-1] + Fn_v[i-2] 
+  }
+  Fn_v[n]
+}
+```
+
+# Before ending
+
+## R packages
+
+```{r, fig.align='center', fig.cap="<br><br>[CRAN](https://cran.r-project.org/web/packages/) and [Bioconductor](https://www.bioconductor.org/) are the main package repositories of R. <br/>[Github](http://github.com) contains lots of packages."}
+knitr::include_graphics('session-01-presentation/repositories.png')
+```
+
+## `tidyverse`: R packages for data science
+
+The [`tidyverse`](https://www.tidyverse.org/) is an opinionated [collection of R packages](https://www.tidyverse.org/packages/) designed for data science. All packages share an underlying design philosophy, grammar, and data structures.
+
+Install the complete tidyverse with:
+
+```{r, eval=FALSE, echo=TRUE}
+install.packages("tidyverse")
+```
+
+<!--
+
+## Iteration {.smaller}
+
+* For-structure:
+
+```r
+for(i in S){
+  ...
+  # Some code
+  ...
+}
+```
+
+* With `base` package:<br>
+`sapply(x, f)`, `lapply(x, f)`<br>
+`mapply(f, x1, x2, ...)`
+* With `purrr`: <br>
+`map()` (`map_lgl()`, `map_int()`,  `map_dbl()` and `map_chr()`)<br>
+`map2()` (`map2_lgl()`, `map2_int()`,  `map2_dbl()` and `map2_chr()`)<br>
+`pmap()` (`pmap_lgl()`, `pmap_int()`,  `pmap_dbl()` and `pmap_chr()`)
+
+-->
+
+# That's all for today
+
+## Next week session
+
+```{r, echo=FALSE, results='asis'}
+cat(readr::read_lines("session-02-content.md"), sep='\n')
+```

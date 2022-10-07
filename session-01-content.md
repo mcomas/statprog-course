@@ -4,5 +4,4 @@
 * Introduction to the R language
     * Vectors: atomic and list
     * Subsetting
-    * Tables
     * Functions
