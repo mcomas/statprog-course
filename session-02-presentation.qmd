@@ -250,7 +250,7 @@ Tidy data is a standard way of mapping the meaning of a dataset to its structure
 2. Every row is an observation
 3. Every cell is a single value
 
-## `tidyr`: helpers to create tidy data
+## `tidyr`: helpers to create tidy data {.smaller}
 
 * "Pivotting". `pivot_longer()` and `pivot_wider()`
 * "Rectangling". `unnest_longer()`, `unnest_wider()`
