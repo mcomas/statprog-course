@@ -5,7 +5,8 @@ output: html_document
 ---
 
 -   __Session 1__. Introduction to R and RStudio/Posit [[html]](session-01-presentation.html) [[pdf]](session-01-presentation.pdf)
--   __Session 2__. Data manipulation and tidying data [[html]](session-02-presentation.html) [[pdf]](session-02-presentation.pdf)
+-   __Session 2__. Data manipulation and tidying data [[html]](session-02-presentation.html) [[pdf]](session-02-presentation.pdf) 
+    * Datasets: [weather.csv](weather.csv)
 -   __Session 3__
 -   __Session 4__
 -   __Session 5__

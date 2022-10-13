@@ -295,7 +295,12 @@ tidyr::who
 
 __Variables are stored in both rows and columns__
 
-```{r, message=FALSE}
+```{r, eval=FALSE, message=FALSE}
+library(readr)
+read_csv("weather.csv")
+```
+
+```{r, echo=FALSE, message=FALSE}
 library(readr)
 read_csv("session-02-presentation/weather.csv")
 ```
