@@ -8,5 +8,6 @@ output: html_document
 -   __Session 2__. Data manipulation and tidying data [[html]](session-02-presentation.html) [[pdf]](session-02-presentation.pdf) 
     * Datasets: [weather.csv](weather.csv)
 -   __Session 3__. Creating graphics with `ggplot2` [[html]](session-03-presentation.html) [[pdf]](session-03-presentation.pdf)
--   __Session 4__
+-   __Session 4__. Overview of probability. Simulation
+[[html]](session-04-presentation.html) [[pdf]](session-04-presentation.pdf)
 -   __Session 5__
