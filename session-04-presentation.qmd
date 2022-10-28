@@ -318,16 +318,19 @@ ggplot(data = df) +
 ## The expected value or mean of a r.v. {.smaller}
 
 * The _expected value_ of a r.v. $X$, denoted  $\mathbb{E}[X]$, is the mean value we expect after an infinite number of runs.
-    * For a discrete r.v. $X$, the expected value is
-$$
-\mathbb{E}[X] = \sum_{x} x \;p(x) \;\;\;\;\;\;\;\;\;\;[\sum_{x} x \;\text{P}(X = x)]
-$$
-    * For a continuous r.v. $X$, the expected value is
-$$
-\mathbb{E}[X] = \int_{-\infty}^{\infty} x \;f(x) dx
-$$
+
+  * For a discrete r.v. $X$, the expected value is
+  $$
+  \mathbb{E}[X] = \sum_{x} x \;p(x) \;\;\;\;\;\;\;\;\;\;[\sum_{x} x \;\text{P}(X = x)]
+  $$
+
+  * For a continuous r.v. $X$, the expected value is
+  $$
+  \mathbb{E}[X] = \int_{-\infty}^{\infty} x \;f(x) dx
+  $$
 
 * Example: the expected value of the r.v. with the value of rolling a 6-faced dice is
+
 $$
 1 \frac{1}{6} + 2 \frac{1}{6}  + 3 \frac{1}{6}  + 4 \frac{1}{6}  + 5 \frac{1}{6}  + 6 \frac{1}{6} = 3.5
 $$
