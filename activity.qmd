@@ -1,0 +1,33 @@
+---
+format: pdf
+editor: visual
+---
+
+## Activity {-}
+
+* Think of a random variable constructed by transforming with a certain non-liner function $f$ a categorical, binomial, Poisson or Gaussian random variable.
+* Take a sample of size 50, save it into a variable `x`.
+* You can calculate the mean of this sample using function `mean()`. Repeat the previous steps different times, for example 1000. Obtaining different means coming from different samples.
+* Visualize the means observed in the previous simulation.
+* If you only had sample `x` (the initial 50 observations), what would be a reasonable value for $\mathbb{E}[Y]$?
+* Using expression
+  $$
+  \frac{\bar{x} - \mathbb{E}[Y]}{s_Y/\sqrt{n}} \sim t_{n-1}
+  $$
+  can you think about a region where $\mathbb{E}[Y]$ is likely to be?
+
+For example, the random variable obtained after transforming with the function $sin$ a binomial distribution.
+
+```{r}
+set.seed(1)
+rv = function(n, size, prob) sin(rbinom(n, size, prob))
+x = rv(50, 10, 0.25)
+x
+```
+
+The mean can be calculated different times for different samples using function `replicate()`.
+
+```{r}
+x_means = replicate(1000, mean(rv(50, 10, 0.25)))
+```
+

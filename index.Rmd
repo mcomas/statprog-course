@@ -11,4 +11,4 @@ output: html_document
 -   __Session 4__. Overview of probability. Simulation
 [[html]](session-04-presentation.html) [[pdf]](session-04-presentation.pdf)
     * Scripts: [play_monty_hall.R](play_monty_hall.R)
--   __Session 5__
+-   __Session 5__. Statistical inference [[html]](session-05-presentation.html) [[pdf]](session-05-presentation.pdf)

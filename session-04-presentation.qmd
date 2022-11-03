@@ -535,7 +535,7 @@ $$
 
 <hr>
 
-Next plot shows the distribution of 1000 realisations of a r.v. obtained as the average of 30 binomial distributions with parameters $n=10$ and $\pi=0.25$. Blue line represents the gaussian distribution with $\mu=n \pi$ and $\sigma^2=\sqrt{n \pi (1-\pi) / 30}$
+Next plot shows the distribution of 1000 realisations of a r.v. obtained as the average of 30 binomial distributions with parameters $n=10$ and $\pi=0.25$. Blue line represents the gaussian distribution with $\mu=n \pi$ and $\sigma=\sqrt{n \pi (1-\pi) / 30}$
 
 ```{r, fig.height=3, out.width="80%"}
 n_ = 10
@@ -565,7 +565,7 @@ $$
 
 <hr>
 
-Next plot shows the distribution of 1000 standardised realisations of a r.v. obtained as the average of 30 binomial distributions with parameters $n=10$ and $\pi=0.25$. Blue line represents the gaussian distribution with $\mu=0$ and $\sigma^2=1$
+Next plot shows the distribution of 1000 standardised realisations of a r.v. obtained as the average of 30 binomial distributions with parameters $n=10$ and $\pi=0.25$. Blue line represents the gaussian distribution with $\mu=0$ and $\sigma=1$
 
 ```{r, fig.height=3, out.width="80%"}
 Z_mean = X_mean %>%
@@ -583,7 +583,7 @@ ggplot() +
 
 If $x_1, \dots, x_n$ is a sample i.i.d with expected value $\mathbb{E}[X]$. Then, when $n$ is big, we have
 $$
-\frac{\bar{x} - \mathbb{E}[X]}{\sqrt{s_x/n}} \sim t_{n-1}
+\frac{\bar{x} - \mathbb{E}[X]}{s_x/\sqrt{n}} \sim t_{n-1}
 $$
 
 <hr>
